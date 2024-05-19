@@ -1,0 +1,71 @@
+<configuration>
+    <timestamp key="bySecond" datePattern="yyyy-MM-dd HH-mm-ss"/>
+
+    <variable name="LOG_PATH" value="${user.home}/.gptadapter/logs/${bySecond}"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="GIPPITY-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/gippity.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="gippity">
+        <appender-ref ref="GIPPITY-FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <appender name="GIPPITY-HTTP-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/gippity-http.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="gippity:http">
+        <appender-ref ref="GIPPITY-HTTP-FILE"/>
+    </logger>
+
+    <appender name="SERVER-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/server.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="server">
+        <appender-ref ref="SERVER-FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <appender name="MVC-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/mvc.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="mvc">
+        <appender-ref ref="MVC-FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <appender name="FULL-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/full.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%thread][%logger{36}][%level] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root>
+        <appender-ref ref="FULL-FILE"/>
+    </root>
+</configuration>

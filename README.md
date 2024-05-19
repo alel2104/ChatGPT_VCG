@@ -10,11 +10,11 @@ Serenade application and the command is executed.
 
 The ChatGPT-voice-code-generator tool has four options:
 1. ChatGPT version 4.0 with direct code generation, which means that ChatGPT will try to respond with code
-   to be generated with the Serenade "insert" keyword prepended.
+   to be generated with the Serenade `typeText()` API method.
 2. ChatGPT version 4.0 with keyword code generation, which means that ChatGPT will try to respond with
    keywords of the voice command related to the Serenade syntax.
 3. ChatGPT version 3.5 with direct code generation, which means that ChatGPT will try to respond with code
-   to be generated with the Serenade "insert" keyword prepended.
+   to be generated with the Serenade `typeText()` API method.
 4. ChatGPT version 3.5 with keyword code generation, which means that ChatGPT will try to respond with
    keywords of the voice command related to the Serenade syntax.
 
